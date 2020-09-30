@@ -1,0 +1,43 @@
+<html>
+<head>
+<script language = "JavaScript">
+
+var number = 0;
+var picList = [ "images/harry-potter.jpg", "images/starwars.jpg", "images/backtothefuture.png", "images/avengers.jpg", "images/jurassicpark.jpg" ];
+var clipList = [ "sounds/harrypotter.mp3", "sounds/starwars.mp3", "sounds/backtothefuture.mp3", "sounds/avengers.mp3", "sounds/jurassicpark.mp3" ];
+function startShow()
+{
+	var pic = document.getElementById("picFrame");
+    var clip = document.getElementById("myAudio");
+        
+    
+    pic.src= picList[number];
+    clip.src= clipList[number];
+    clip.play()
+    
+    number = number + 1; 
+    if(number > 4)
+    {
+        number = 0;
+    }
+}
+
+</script>
+
+</head>
+<body>
+<center> 
+<h1> JavaScript Tester </h1>
+
+<img id="picFrame" src="images/indiana-jones.jpg"/>
+<audio id="myAudio"> </audio>
+<br/>
+<br/>
+
+<input type="button" value="Click Me" onClick="startShow()">
+
+</center>
+</body>
+</html>
+
+
