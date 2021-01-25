@@ -1,0 +1,87 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1.
+2.
+3.
+4.
+5. 
+6.
+7.
+8 
+
+*/
+
+
+var group = ["-- Choose a character --", "Harry Potter", "Ron Weasley", "Hermoine Granger", "Ginny Weasley", "Lord Voldemort", "Albus Dumbledore", "Neville Longbottom", "Severus Snape"];
+
+var facts = ["-- No character selected --", "the only known Master of all 3 Deathly Hallows", "learned to speak a bit of Parseltongue", "both of her parents were dentists", "stole her brothers broomsticks to learn Quidditch", "Voldemort loosely translates to 'flight from death' in French", "was best friends with Gellert Grindelwald in his youth", "born on the same day as Harry Potter", "also known as the Half-Blood Prince"];
+
+function loadData() // fills in the drop down for the select object
+{
+	
+	for(var i = 0; i<group.length; i++)
+    {
+        var daList = document.getElementById("char");
+  		var option = document.createElement("option");
+  		option.text = group[i];
+  		daList.add(option);
+    }
+}
+
+// This function identifies which element from the drop down has been selected. It calls the 
+// getIndex function to acquire what the index of the selected item. Then it displays the 
+// corresponding element in the facts list. (This is diplayed in the textbox on the web page.)
+function start()
+{
+    var names = document.getElementById("char");
+    
+    var daIndex = getIndex(names.value);
+    
+    document.getElementById("funFact").value = facts[daIndex]
+    
+}
+
+// This function searches the group array for the element passed as a parameter
+// and returns the index number for that element in the array.
+function getIndex(d) // var d - "Harry Potter"
+{
+
+    var answer = -1;
+    
+    for(var i = 0; i < group.length; i++){
+        
+        if( group[i] == d){
+            answer = i;
+        }
+
+    }
+        
+    return answer;
+}
+
+
+
+</script>
+</head>
+<body onload="loadData()" background="images/hpbackground.jpg"> 
+<center>
+<h1>Harry Potter Fun Facts</h1>
+<p> <center> click here to <a href="index.html"> return to my homepage.</center> </a>
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<select name="p1" id="char"></select>	</td>
+		<td>	<input id="funFact" type="text" size="40"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="click" onclick="start()"/>
+</center>
+
+
+</body>
+</html>
